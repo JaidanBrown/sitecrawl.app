@@ -8,10 +8,31 @@ import { cn } from '@/lib/utils'
 
 const menuItems = [
     { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Documentation', href: '#docs' },
-    { name: 'About', href: '#about' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Updates', href: '/changelog' },
 ]
+
+const handleAnchorClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault()
+    const elementId = href.substring(1) // Remove the #
+    const element = document.getElementById(elementId)
+
+    if (element) {
+        // Element exists on current page, scroll to it
+        const headerOffset = 100
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        })
+    } else {
+        // Element doesn't exist, navigate to home page with hash
+        window.location.href = '/' + href
+    }
+}
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -23,6 +44,28 @@ export const HeroHeader = () => {
         }
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    // Handle hash on page load
+    React.useEffect(() => {
+        const hash = window.location.hash
+        if (hash) {
+            // Wait for page to fully load
+            setTimeout(() => {
+                const elementId = hash.substring(1)
+                const element = document.getElementById(elementId)
+                if (element) {
+                    const headerOffset = 100
+                    const elementPosition = element.getBoundingClientRect().top
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    })
+                }
+            }, 100)
+        }
     }, [])
     return (
         <header>
@@ -52,11 +95,19 @@ export const HeroHeader = () => {
                             <ul className="flex gap-8 text-sm">
                                 {menuItems.map((item, index) => (
                                     <li key={index}>
-                                        <Link
-                                            href={item.href}
-                                            className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                            <span>{item.name}</span>
-                                        </Link>
+                                        {item.href.startsWith('#') ? (
+                                            <button
+                                                onClick={(e) => handleAnchorClick(e, item.href)}
+                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                <span>{item.name}</span>
+                                            </button>
+                                        ) : (
+                                            <Link
+                                                href={item.href}
+                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                <span>{item.name}</span>
+                                            </Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
@@ -67,11 +118,22 @@ export const HeroHeader = () => {
                                 <ul className="space-y-6 text-base">
                                     {menuItems.map((item, index) => (
                                         <li key={index}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                                <span>{item.name}</span>
-                                            </Link>
+                                            {item.href.startsWith('#') ? (
+                                                <button
+                                                    onClick={(e) => {
+                                                        handleAnchorClick(e, item.href)
+                                                        setMenuState(false)
+                                                    }}
+                                                    className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                    <span>{item.name}</span>
+                                                </button>
+                                            ) : (
+                                                <Link
+                                                    href={item.href}
+                                                    className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                    <span>{item.name}</span>
+                                                </Link>
+                                            )}
                                         </li>
                                     ))}
                                 </ul>

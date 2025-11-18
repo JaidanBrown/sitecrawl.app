@@ -1,10 +1,10 @@
 export default function FAQs() {
     return (
-        <section className="bg-white text-black scroll-py-16 py-16 md:scroll-py-32 md:py-32">
+        <section id="faq" className="bg-white text-black scroll-py-16 py-16 md:scroll-py-32 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="grid gap-y-12 px-2 lg:[grid-template-columns:1fr_auto]">
                     <div className="text-center lg:text-left">
-                        <h2 className="mb-4 text-4xl font-semibold md:text-5xl lg:text-6xl">
+                        <h2 className="mb-4 text-4xl font-medium md:text-5xl lg:text-6xl" style={{ lineHeight: '70px', letterSpacing: '-0.05em' }}>
                             Frequently <br className="hidden lg:block" /> Asked <br className="hidden lg:block" />
                             Questions
                         </h2>

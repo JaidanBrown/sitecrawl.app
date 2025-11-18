@@ -3,12 +3,20 @@ import { Shield, Users } from 'lucide-react'
 
 export default function Features8Section() {
     return (
-        <section className="bg-background py-16 md:py-32">
+        <section className="bg-white text-black py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl font-medium md:text-5xl lg:text-6xl" style={{ lineHeight: '70px', letterSpacing: '-0.05em' }}>
+                        Powerful Features
+                    </h2>
+                    <p className="text-gray-600 mx-auto mt-6 max-w-2xl text-lg">
+                        Everything you need to keep your website running smoothly and ranking high in search results.
+                    </p>
+                </div>
                 <div className="relative">
                     <div className="relative z-10 grid grid-cols-6 gap-3">
-                        <Card className="bg-[#1d1f23] relative col-span-full flex overflow-hidden lg:col-span-2">
-                            <CardContent className="relative m-auto size-fit pt-6">
+                        <Card className="bg-[#f5f5f6] relative col-span-full flex overflow-hidden lg:col-span-2 border-0 min-h-[400px] shadow-none">
+                            <CardContent className="relative w-full p-8">
                                 <div className="relative flex h-24 w-56 items-center">
                                     <svg
                                         className="text-muted absolute inset-0 size-full"
@@ -20,14 +28,14 @@ export default function Features8Section() {
                                             fill="currentColor"
                                         />
                                     </svg>
-                                    <span className="mx-auto block w-fit text-5xl font-semibold">100%</span>
+                                    <span className="mx-auto block w-fit text-5xl font-semibold text-black">100%</span>
                                 </div>
-                                <h2 className="text-foreground mt-6 text-center text-3xl font-semibold">Automated</h2>
+                                <h2 className="text-black mt-6 text-left text-3xl font-semibold">Automated</h2>
                             </CardContent>
                         </Card>
-                        <Card className="bg-[#1d1f23] relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
-                            <CardContent className="pt-6">
-                                <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
+                        <Card className="bg-[#f5f5f6] relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 border-0 min-h-[400px] shadow-none">
+                            <CardContent className="p-8">
+                                <div className="relative flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-gray-200 before:border-gray-100">
                                     <svg
                                         className="m-auto h-fit w-24"
                                         viewBox="0 0 212 143"
@@ -80,17 +88,17 @@ export default function Features8Section() {
                                         </defs>
                                     </svg>
                                 </div>
-                                <div className="relative z-10 mt-6 space-y-2 text-center">
-                                    <h2 className="text-foreground text-lg font-medium transition">Complete Coverage</h2>
-                                    <p className="text-muted-foreground">Scan every page, asset, and link across your entire website for comprehensive analysis.</p>
+                                <div className="relative z-10 mt-6 space-y-2 text-left">
+                                    <h2 className="text-black text-lg font-medium transition">Complete Coverage</h2>
+                                    <p className="text-gray-600">Scan every page, asset, and link across your entire website for comprehensive analysis.</p>
                                 </div>
                             </CardContent>
                         </Card>
-                        <Card className="bg-[#1d1f23] relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
-                            <CardContent className="pt-6">
+                        <Card className="bg-[#f5f5f6] relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 border-0 min-h-[400px] shadow-none">
+                            <CardContent className="p-8">
                                 <div className="pt-6 lg:px-6">
                                     <svg
-                                        className="dark:text-muted-foreground w-full"
+                                        className="text-muted-foreground w-full"
                                         viewBox="0 0 386 123"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -172,24 +180,24 @@ export default function Features8Section() {
                                         </defs>
                                     </svg>
                                 </div>
-                                <div className="relative z-10 mt-14 space-y-2 text-center">
-                                    <h2 className="text-foreground text-lg font-medium transition">Real-time Monitoring</h2>
-                                    <p className="text-muted-foreground">Track your website's health and get instant alerts when issues are detected.</p>
+                                <div className="relative z-10 mt-14 space-y-2 text-left">
+                                    <h2 className="text-black text-lg font-medium transition">Real-time Monitoring</h2>
+                                    <p className="text-gray-600">Track your website's health and get instant alerts when issues are detected.</p>
                                 </div>
                             </CardContent>
                         </Card>
-                        <Card className="bg-[#1d1f23] card variant-outlined relative col-span-full overflow-hidden lg:col-span-3">
-                            <CardContent className="grid pt-6 sm:grid-cols-2">
+                        <Card className="bg-[#f5f5f6] card variant-outlined relative col-span-full overflow-hidden lg:col-span-3 border-0 min-h-[400px] shadow-none">
+                            <CardContent className="grid p-8 sm:grid-cols-2">
                                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                                    <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
+                                    <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-gray-200 before:border-gray-100">
                                         <Shield
-                                            className="m-auto size-5"
+                                            className="m-auto size-5 text-black"
                                             strokeWidth={1}
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-foreground text-lg font-medium transition">Performance Insights</h2>
-                                        <p className="text-muted-foreground">Get detailed metrics on page speed, load times, and resource optimization.</p>
+                                        <h2 className="text-black text-lg font-medium transition">Performance Insights</h2>
+                                        <p className="text-gray-600">Get detailed metrics on page speed, load times, and resource optimization.</p>
                                     </div>
                                 </div>
                                 <div className="rounded-tl-(--radius) relative -mb-6 -mr-6 mt-6 h-fit border-l border-t p-6 py-6 sm:ml-6">
@@ -239,18 +247,18 @@ export default function Features8Section() {
                                 </div>
                             </CardContent>
                         </Card>
-                        <Card className="bg-[#1d1f23] card variant-outlined relative col-span-full overflow-hidden lg:col-span-3">
-                            <CardContent className="grid h-full pt-6 sm:grid-cols-2">
+                        <Card className="bg-[#f5f5f6] card variant-outlined relative col-span-full overflow-hidden lg:col-span-3 border-0 min-h-[400px] shadow-none">
+                            <CardContent className="grid h-full p-8 sm:grid-cols-2">
                                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                                    <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
+                                    <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-gray-200 before:border-gray-100">
                                         <Users
-                                            className="m-auto size-6"
+                                            className="m-auto size-6 text-black"
                                             strokeWidth={1}
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-foreground text-lg font-medium transition">Team Collaboration</h2>
-                                        <p className="text-muted-foreground">Share reports, assign tasks, and work together to fix issues faster.</p>
+                                        <h2 className="text-black text-lg font-medium transition">Team Collaboration</h2>
+                                        <p className="text-gray-600">Share reports, assign tasks, and work together to fix issues faster.</p>
                                     </div>
                                 </div>
                                 <div className="before:bg-(--color-border) relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px sm:-my-6 sm:-mr-6">

@@ -6,29 +6,15 @@ export default function FeaturesSection() {
         <section className="bg-background py-16 md:py-32">
             <div className="mx-auto max-w-5xl space-y-12 px-6">
                 <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
-                    <h2 className="text-foreground text-4xl font-semibold">Everything you need to optimize your website</h2>
+                    <h2 className="text-foreground text-4xl font-medium md:text-5xl lg:text-6xl" style={{ lineHeight: '70px', letterSpacing: '-0.05em' }}>Everything you need to optimize your website</h2>
                     <p className="text-muted-foreground max-w-sm sm:ml-auto">Powerful tools and insights that help you identify and fix technical issues before they impact your search rankings.</p>
                 </div>
                 <div className="px-3 pt-3 md:-mx-8">
                     <div className="aspect-88/36 mask-b-from-75% mask-b-to-95% relative">
                         <Image
-                            src="/mail-upper.png"
+                            src="/dashboard/dashboard-2.png"
                             className="absolute inset-0 z-10"
                             alt="sitecrawl dashboard"
-                            width={2797}
-                            height={1137}
-                        />
-                        <Image
-                            src="/mail-back.png"
-                            className="hidden dark:block"
-                            alt="sitecrawl dashboard dark"
-                            width={2797}
-                            height={1137}
-                        />
-                        <Image
-                            src="/mail-back-light.png"
-                            className="dark:hidden"
-                            alt="sitecrawl dashboard light"
                             width={2797}
                             height={1137}
                         />

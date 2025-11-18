@@ -7,7 +7,7 @@ export default function LogoCloud() {
             <div className="group relative m-auto max-w-7xl px-6">
                 <div className="flex flex-col items-center md:flex-row">
                     <div className="md:max-w-44 md:border-r md:pr-6">
-                        <p className="text-muted-foreground text-end text-sm">Trusted by leading brands</p>
+                        <p className="text-muted-foreground text-end text-sm">Integrations Coming Soon</p>
                     </div>
                     <div className="relative py-6 md:w-[calc(100%-11rem)]">
                         <InfiniteSlider
@@ -17,8 +17,8 @@ export default function LogoCloud() {
                             <div className="flex">
                                 <img
                                     className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                                    alt="Nvidia Logo"
+                                    src="https://cdn.simpleicons.org/wordpress/21759B"
+                                    alt="WordPress"
                                     height="20"
                                     width="auto"
                                 />
@@ -26,10 +26,28 @@ export default function LogoCloud() {
 
                             <div className="flex">
                                 <img
-                                    className="mx-auto h-4 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/column.svg"
-                                    alt="Column Logo"
-                                    height="16"
+                                    className="mx-auto h-5 w-fit dark:invert"
+                                    src="https://cdn.simpleicons.org/shopify/96BF48"
+                                    alt="Shopify"
+                                    height="20"
+                                    width="auto"
+                                />
+                            </div>
+                            <div className="flex">
+                                <img
+                                    className="mx-auto h-5 w-fit dark:invert"
+                                    src="https://cdn.simpleicons.org/webflow/4353FF"
+                                    alt="Webflow"
+                                    height="20"
+                                    width="auto"
+                                />
+                            </div>
+                            <div className="flex">
+                                <img
+                                    className="mx-auto h-5 w-fit dark:invert"
+                                    src="https://cdn.simpleicons.org/slack/4A154B"
+                                    alt="Slack"
+                                    height="20"
                                     width="auto"
                                 />
                             </div>
@@ -37,7 +55,7 @@ export default function LogoCloud() {
                                 <img
                                     className="mx-auto h-4 w-fit dark:invert"
                                     src="https://html.tailus.io/blocks/customers/github.svg"
-                                    alt="GitHub Logo"
+                                    alt="GitHub"
                                     height="16"
                                     width="auto"
                                 />
@@ -45,8 +63,8 @@ export default function LogoCloud() {
                             <div className="flex">
                                 <img
                                     className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/nike.svg"
-                                    alt="Nike Logo"
+                                    src="https://cdn.simpleicons.org/google/4285F4"
+                                    alt="Google"
                                     height="20"
                                     width="auto"
                                 />
@@ -54,37 +72,19 @@ export default function LogoCloud() {
                             <div className="flex">
                                 <img
                                     className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
-                                    alt="Lemon Squeezy Logo"
+                                    src="https://cdn.simpleicons.org/vercel/000000"
+                                    alt="Vercel"
                                     height="20"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-4 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/laravel.svg"
-                                    alt="Laravel Logo"
-                                    height="16"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-7 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/lilly.svg"
-                                    alt="Lilly Logo"
-                                    height="28"
                                     width="auto"
                                 />
                             </div>
 
                             <div className="flex">
                                 <img
-                                    className="mx-auto h-6 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/openai.svg"
-                                    alt="OpenAI Logo"
-                                    height="24"
+                                    className="mx-auto h-5 w-fit dark:invert"
+                                    src="https://cdn.simpleicons.org/squarespace/000000"
+                                    alt="Squarespace"
+                                    height="20"
                                     width="auto"
                                 />
                             </div>
