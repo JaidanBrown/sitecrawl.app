@@ -1,6 +1,5 @@
 import { HeroHeader } from '@/components/header'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { Check } from 'lucide-react'
 import FooterSection from '@/components/footer'
 
@@ -115,7 +114,7 @@ export default function PricingPage() {
                                     size="lg"
                                     variant={plan.popular ? 'default' : 'outline'}
                                     className="w-full rounded-xl">
-                                    <Link href="#link">{plan.cta}</Link>
+                                    <a href="#link">{plan.cta}</a>
                                 </Button>
                             </div>
                         ))}
@@ -125,7 +124,7 @@ export default function PricingPage() {
                         <p className="text-muted-foreground text-sm">
                             All plans include SSL monitoring, broken link detection, and basic analytics.
                             <br />
-                            Need something custom? <Link href="#link" className="text-foreground underline">Contact our sales team</Link>.
+                            Need something custom? <a href="#link" className="text-foreground underline">Contact our sales team</a>.
                         </p>
                     </div>
                 </div>

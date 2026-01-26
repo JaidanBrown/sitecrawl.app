@@ -1,6 +1,4 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Globe } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Features() {
     return (
@@ -17,7 +15,7 @@ export default function Features() {
 
                         <div className="mask-b-from-75% mask-b-to-95% relative h-fit pl-6 md:pl-12">
                             <div className="bg-background overflow-hidden rounded-tl-lg border-l border-t pl-2 pt-2 dark:bg-zinc-950">
-                                <Image
+                                <img
                                     src="/dashboard/dashboard-2.png"
                                     className="hidden dark:block"
                                     alt="payments illustration dark"
@@ -33,7 +31,7 @@ export default function Features() {
                         <CardContent className="mt-auto h-fit">
                             <div className="mask-radial-at-left mask-radial-from-75% mask-radial-[75%_75%] relative max-sm:mb-6">
                                 <div className=" overflow-hidden rounded-l-lg border">
-                                    <Image
+                                    <img
                                         src="/dashboard/sidebar-1.png"
                                         alt="sidebar illustration"
                                         width={1207}

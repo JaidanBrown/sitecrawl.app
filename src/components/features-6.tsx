@@ -1,5 +1,4 @@
 import { Search, BarChart3, Bell, FileCheck } from 'lucide-react'
-import Image from 'next/image'
 
 export default function FeaturesSection() {
     return (
@@ -11,7 +10,7 @@ export default function FeaturesSection() {
                 </div>
                 <div className="px-3 pt-3 md:-mx-8">
                     <div className="aspect-88/36 mask-b-from-75% mask-b-to-95% relative">
-                        <Image
+                        <img
                             src="/dashboard/dashboard-2.png"
                             className="absolute inset-0 z-10"
                             alt="sitecrawl dashboard"

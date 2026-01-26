@@ -70,7 +70,6 @@ export default function ChangelogPage() {
                             <div
                                 key={index}
                                 className="border-l-2 border-white/10 pl-8 relative">
-                                {/* Timeline dot */}
                                 <div className="absolute -left-[9px] top-0 size-4 rounded-full bg-foreground ring-4 ring-background" />
 
                                 <div className="mb-2 flex flex-wrap items-center gap-3">

@@ -1,5 +1,3 @@
-'use client'
-import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -15,11 +13,10 @@ const menuItems = [
 
 const handleAnchorClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault()
-    const elementId = href.substring(1) // Remove the #
+    const elementId = href.substring(1)
     const element = document.getElementById(elementId)
 
     if (element) {
-        // Element exists on current page, scroll to it
         const headerOffset = 100
         const elementPosition = element.getBoundingClientRect().top
         const offsetPosition = elementPosition + window.scrollY - headerOffset
@@ -29,7 +26,6 @@ const handleAnchorClick = (e: React.MouseEvent, href: string) => {
             behavior: 'smooth'
         })
     } else {
-        // Element doesn't exist, navigate to home page with hash
         window.location.href = '/' + href
     }
 }
@@ -46,11 +42,9 @@ export const HeroHeader = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Handle hash on page load
     React.useEffect(() => {
         const hash = window.location.hash
         if (hash) {
-            // Wait for page to fully load
             setTimeout(() => {
                 const elementId = hash.substring(1)
                 const element = document.getElementById(elementId)
@@ -75,12 +69,12 @@ export const HeroHeader = () => {
                 <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12 bg-background/30 backdrop-blur-sm', isScrolled && 'bg-background/80 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5')}>
                     <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
                         <div className="flex w-full justify-between lg:w-auto">
-                            <Link
+                            <a
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
                                 <Logo />
-                            </Link>
+                            </a>
 
                             <button
                                 onClick={() => setMenuState(!menuState)}
@@ -102,11 +96,11 @@ export const HeroHeader = () => {
                                                 <span>{item.name}</span>
                                             </button>
                                         ) : (
-                                            <Link
+                                            <a
                                                 href={item.href}
                                                 className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                                 <span>{item.name}</span>
-                                            </Link>
+                                            </a>
                                         )}
                                     </li>
                                 ))}
@@ -128,11 +122,11 @@ export const HeroHeader = () => {
                                                     <span>{item.name}</span>
                                                 </button>
                                             ) : (
-                                                <Link
+                                                <a
                                                     href={item.href}
                                                     className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                                     <span>{item.name}</span>
-                                                </Link>
+                                                </a>
                                             )}
                                         </li>
                                     ))}
@@ -144,25 +138,25 @@ export const HeroHeader = () => {
                                     variant="outline"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <a href="#">
                                         <span>Login</span>
-                                    </Link>
+                                    </a>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <a href="#">
                                         <span>Sign Up</span>
-                                    </Link>
+                                    </a>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
+                                    <a href="#">
                                         <span>Get Started</span>
-                                    </Link>
+                                    </a>
                                 </Button>
                             </div>
                         </div>

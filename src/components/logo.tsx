@@ -1,16 +1,13 @@
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
 
-export const Logo = ({ className, uniColor }: { className?: string; uniColor?: boolean }) => {
+export const Logo = ({ className }: { className?: string }) => {
     return (
-        <Image
+        <img
             src="/logo/logo.png"
             alt="SiteCrawl Logo"
             width={1521}
             height={256}
             className={cn("h-5 w-auto", className)}
-            priority
-            quality={100}
         />
     )
 }
