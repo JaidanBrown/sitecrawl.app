@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogList from '../../components/blog-list';
+import { sanityClient, type Post } from '../../lib/sanity';
+
+const posts = await sanityClient.fetch<Post[]>(`
+  *[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    "author": author->{ name, image },
+    "categories": categories[]->{ title }
+  }
+`);
+---
+
+<Layout title="Blog - SiteCrawl" description="Stay updated with the latest insights on SEO, website performance, and technical optimization.">
+	<BlogList posts={posts} client:load />
+</Layout>

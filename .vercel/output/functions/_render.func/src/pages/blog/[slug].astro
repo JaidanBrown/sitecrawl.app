@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/blog-post';
+import { sanityClient, type Post } from '../../lib/sanity';
+
+const { slug } = Astro.params;
+
+const post = await sanityClient.fetch<Post>(`
+  *[_type == "post" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    "author": author->{ name, image },
+    "categories": categories[]->{ title }
+  }
+`, { slug });
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+---
+
+<Layout title={`${post.title} - SiteCrawl Blog`} description={post.title}>
+	<BlogPost post={post} client:load />
+</Layout>

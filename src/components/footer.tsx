@@ -7,7 +7,7 @@ const links = [
     },
     {
         title: 'Pricing',
-        href: '#pricing',
+        href: '/pricing',
     },
     {
         title: 'Documentation',
@@ -15,7 +15,7 @@ const links = [
     },
     {
         title: 'Blog',
-        href: '#blog',
+        href: '/blog',
     },
     {
         title: 'Support',
