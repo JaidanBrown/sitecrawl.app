@@ -2,11 +2,14 @@ import { HeroHeader } from '@/components/header'
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 import FooterSection from '@/components/footer'
+import { useState } from 'react'
 
 const pricingPlans = [
     {
         name: 'Starter',
-        price: '$29',
+        monthlyPrice: '£19',
+        yearlyPrice: '£190',
+        yearlySavings: '£38',
         period: '/month',
         description: 'Perfect for small websites and personal projects',
         features: [
@@ -22,7 +25,9 @@ const pricingPlans = [
     },
     {
         name: 'Professional',
-        price: '$99',
+        monthlyPrice: '£49',
+        yearlyPrice: '£490',
+        yearlySavings: '£98',
         period: '/month',
         description: 'Ideal for growing businesses and agencies',
         features: [
@@ -39,9 +44,11 @@ const pricingPlans = [
         popular: true,
     },
     {
-        name: 'Enterprise',
-        price: 'Custom',
-        period: '',
+        name: 'Agency',
+        monthlyPrice: '£149',
+        yearlyPrice: '£1490',
+        yearlySavings: '£298',
+        period: '/month',
         description: 'For large organizations with complex needs',
         features: [
             'Unlimited pages',
@@ -53,12 +60,14 @@ const pricingPlans = [
             'Advanced security',
             'Custom data retention',
         ],
-        cta: 'Contact Sales',
+        cta: 'Start Free Trial',
         popular: false,
     },
 ]
 
 export default function PricingPage() {
+    const [isYearly, setIsYearly] = useState(false)
+
     return (
         <>
             <HeroHeader />
@@ -71,6 +80,21 @@ export default function PricingPage() {
                         <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg">
                             Choose the perfect plan for your website. All plans include a 14-day free trial.
                         </p>
+                        <div className="mt-8 flex items-center justify-center gap-4">
+                            <span className={`text-sm transition-colors ${!isYearly ? 'text-foreground' : 'text-muted-foreground'}`}>Monthly</span>
+                            <button
+                                type="button"
+                                onClick={() => setIsYearly(!isYearly)}
+                                className={`relative h-7 w-14 rounded-full transition-colors cursor-pointer ${isYearly ? 'bg-foreground' : 'bg-white/20'}`}>
+                                <span 
+                                    className="absolute top-1 size-5 rounded-full bg-background transition-all duration-200"
+                                    style={{ left: isYearly ? '1.75rem' : '0.25rem' }}
+                                />
+                            </button>
+                            <span className={`text-sm transition-colors ${isYearly ? 'text-foreground' : 'text-muted-foreground'}`}>
+                                Yearly <span className="text-green-400">(Save 16%)</span>
+                            </span>
+                        </div>
                     </div>
 
                     <div className="mt-16 grid gap-8 lg:grid-cols-3">
@@ -93,11 +117,18 @@ export default function PricingPage() {
                                     <h3 className="text-foreground text-2xl font-semibold">{plan.name}</h3>
                                     <p className="text-muted-foreground mt-2 text-sm">{plan.description}</p>
                                     <div className="mt-6 flex items-baseline gap-1">
-                                        <span className="text-foreground text-5xl font-bold">{plan.price}</span>
-                                        {plan.period && (
-                                            <span className="text-muted-foreground text-lg">{plan.period}</span>
-                                        )}
+                                        <span className="text-foreground text-5xl font-bold">
+                                            {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                                        </span>
+                                        <span className="text-muted-foreground text-lg">
+                                            {isYearly ? '/year' : '/month'}
+                                        </span>
                                     </div>
+                                    {isYearly && (
+                                        <p className="text-green-400 text-sm mt-2">
+                                            Save {plan.yearlySavings} per year
+                                        </p>
+                                    )}
                                 </div>
 
                                 <ul className="mb-8 space-y-3">
@@ -114,7 +145,7 @@ export default function PricingPage() {
                                     size="lg"
                                     variant={plan.popular ? 'default' : 'outline'}
                                     className="w-full rounded-xl">
-                                    <a href="#link">{plan.cta}</a>
+                                    <a href="https://dashboard.sitecrawl.app/auth/signup">{plan.cta}</a>
                                 </Button>
                             </div>
                         ))}
@@ -122,8 +153,6 @@ export default function PricingPage() {
 
                     <div className="mt-16 text-center">
                         <p className="text-muted-foreground text-sm">
-                            All plans include SSL monitoring, broken link detection, and basic analytics.
-                            <br />
                             Need something custom? <a href="#link" className="text-foreground underline">Contact our sales team</a>.
                         </p>
                     </div>

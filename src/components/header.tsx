@@ -139,7 +139,7 @@ export const HeroHeader = () => {
                                     variant="outline"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <a href="#">
+                                    <a href="https://dashboard.sitecrawl.app/auth/login">
                                         <span>Login</span>
                                     </a>
                                 </Button>
@@ -147,7 +147,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <a href="#">
+                                    <a href="https://dashboard.sitecrawl.app/auth/signup">
                                         <span>Sign Up</span>
                                     </a>
                                 </Button>
@@ -155,7 +155,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <a href="#">
+                                    <a href="https://dashboard.sitecrawl.app/auth/signup">
                                         <span>Get Started</span>
                                     </a>
                                 </Button>
