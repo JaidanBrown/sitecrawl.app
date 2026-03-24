@@ -51,7 +51,7 @@ export default function ChangelogPage({ entries }: ChangelogPageProps) {
                                         <h2 className="text-foreground text-2xl font-semibold">
                                             {entry.typeLabel}
                                         </h2>
-                                        <span className="bg-foreground/10 text-foreground rounded-full px-3 py-1 text-xs font-medium">
+                                        <span className="bg-foreground/10 text-foreground rounded-full px-3 py-1 text-xs font-medium capitalize">
                                             {entry.type}
                                         </span>
                                     </div>
@@ -69,9 +69,6 @@ export default function ChangelogPage({ entries }: ChangelogPageProps) {
                                                         <span className="text-muted-foreground">({change.scope}) </span>
                                                     )}
                                                     {change.description}
-                                                    <span className="text-muted-foreground text-xs ml-2">
-                                                        {change.sha}
-                                                    </span>
                                                 </span>
                                             </li>
                                         ))}
