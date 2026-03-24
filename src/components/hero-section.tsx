@@ -104,7 +104,7 @@ function CTASection() {
                                 asChild
                                 size="lg"
                                 className="rounded-xl px-8 text-base">
-                                <a href="#link">
+                                <a href="https://dashboard.sitecrawl.app/auth/signup">
                                     <span className="text-nowrap">Start Free Trial</span>
                                 </a>
                             </Button>
@@ -114,7 +114,7 @@ function CTASection() {
                             size="lg"
                             variant="ghost"
                             className="h-10.5 rounded-xl px-8">
-                            <a href="#link">
+                            <a href="https://tidycal.com/sitecrawl/demo">
                                 <span className="text-nowrap">Schedule Demo</span>
                             </a>
                         </Button>
@@ -136,7 +136,7 @@ export default function HeroSection() {
                             <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                                 <AnimatedGroup variants={transitionVariants}>
                                     <a
-                                        href="#link"
+                                        href="#features"
                                         className="bg-[#1d1f23] hover:bg-background dark:hover:border-t-border group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 transition-colors duration-300 dark:border-t-white/5">
                                         <span className="text-foreground text-sm">Now with Advanced SEO Analysis</span>
                                         <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
@@ -181,7 +181,7 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
-                                            <a href="#link">
+                                            <a href="https://dashboard.sitecrawl.app/auth/signup">
                                                 <span className="text-nowrap">14 Day Free Trial</span>
                                             </a>
                                         </Button>
@@ -192,7 +192,7 @@ export default function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-5">
-                                        <a href="#link">
+                                        <a href="#features">
                                             <span className="text-nowrap">Learn More</span>
                                         </a>
                                     </Button>

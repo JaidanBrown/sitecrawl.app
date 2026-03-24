@@ -153,7 +153,7 @@ export default function PricingPage() {
 
                     <div className="mt-16 text-center">
                         <p className="text-muted-foreground text-sm">
-                            Need something custom? <a href="#link" className="text-foreground underline">Contact our sales team</a>.
+                            Need something custom? <a href="mailto:hello@sitecrawl.app" className="text-foreground underline">Contact our sales team</a>.
                         </p>
                     </div>
                 </div>
