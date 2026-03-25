@@ -136,9 +136,9 @@ export default function HeroSection() {
                             <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                                 <AnimatedGroup variants={transitionVariants}>
                                     <a
-                                        href="#features"
+                                        href="/changelog"
                                         className="bg-[#1d1f23] hover:bg-background dark:hover:border-t-border group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 transition-colors duration-300 dark:border-t-white/5">
-                                        <span className="text-foreground text-sm">Now with Advanced SEO Analysis</span>
+                                        <span className="text-foreground text-sm">Version 1.0 now available!</span>
                                         <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
                                         <div className="group-hover:bg-[#1d1f23] size-6 overflow-hidden rounded-full duration-500">

@@ -83,7 +83,7 @@ export default function ChangelogPage({ entries }: ChangelogPageProps) {
                             Want to request a feature?
                         </h3>
                         <p className="text-muted-foreground mt-2">
-                            We're always looking to improve SiteCrawl. Let us know what you'd like to see next.
+                            We're always looking to improve SiteCrawl. Let us know what you'd like to see next. <a href="mailto:hello@sitecrawl.app" className="text-foreground underline">Contact our sales team</a>.
                         </p>
                     </div>
                 </div>
