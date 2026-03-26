@@ -141,5 +141,8 @@ export async function getChangelogEntries(): Promise<ChangelogEntry[]> {
         }
     }
     
-    return entries
+    // Merge with backlog entries
+    const { changelog: backlogEntries } = await import('./changelog-data')
+    
+    return [...entries, ...backlogEntries]
 }
