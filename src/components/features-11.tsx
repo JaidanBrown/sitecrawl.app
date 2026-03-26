@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 export default function Features() {
     return (
-        <section className="bg-white text-black py-16 md:py-32">
+        <section id="features" className="bg-white text-black py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="mx-auto grid gap-2 sm:grid-cols-5">
                     <Card className="group overflow-hidden shadow-none border-0 bg-[#f5f5f6] sm:col-span-3 sm:rounded-none sm:rounded-tl-xl">

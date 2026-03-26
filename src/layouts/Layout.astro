@@ -19,6 +19,14 @@ const { title, description = "Discover technical issues, optimize performance, a
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQWBYEMPK"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-WKQWBYEMPK');
+		</script>
 	</head>
 	<body class="antialiased">
 		<slot />
