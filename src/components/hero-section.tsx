@@ -1,87 +1,43 @@
-import React from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
-import { motion, useScroll, useTransform } from 'motion/react'
 import FooterSection from './footer'
 import FAQs from './faqs'
 import FeaturesSection from './features-6'
 import Features11 from './features-11'
 
-const transitionVariants = {
-    item: {
-        hidden: {
-            opacity: 0,
-            filter: 'blur(12px)',
-            y: 12,
-        },
-        visible: {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0,
-            transition: {
-                type: 'spring' as const,
-                bounce: 0.3,
-                duration: 1.5,
-            },
-        },
-    },
-}
-
-function ScrollRevealSection() {
-    const ref = React.useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start 0.9", "end 0.3"]
-    })
-
-    const paragraphs = [
-        "Every website has hidden problems that slow it down and hurt its search rankings. Missing meta tags, broken links, slow loading times - these issues stack up and cost you traffic.",
-        "SiteCrawl automatically scans your entire site, identifies every technical issue, and gives you a clear roadmap to fix them. Get the insights you need to outrank your competition."
+function StatementSection() {
+    const stats = [
+        { label: 'URLs crawled', value: '128,431' },
+        { label: 'Issues detected', value: '12,847' },
+        { label: 'Response codes tracked', value: '38' },
+        { label: 'Reports generated', value: '4,209' },
     ]
 
-    const highlightWords = new Set(['problems', 'search rankings', 'SiteCrawl', 'technical issue', 'roadmap', 'outrank', 'competition'])
-
-    const allWords = paragraphs.flatMap(p => p.split(' '))
-    const totalWords = allWords.length
-
     return (
-        <section ref={ref} className="bg-[#f8f9fa] text-black py-32 md:py-48">
-            <div className="mx-auto max-w-4xl px-6 text-left">
-                {paragraphs.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="mb-8 text-xl font-semibold leading-snug tracking-tight md:text-3xl lg:text-4xl">
-                        {paragraph.split(' ').map((word, wIndex) => {
-                            const wordPosition = paragraphs.slice(0, pIndex).reduce((sum, p) => sum + p.split(' ').length, 0) + wIndex
-                            const threshold = wordPosition / totalWords
-
-                            const opacity = useTransform(
-                                scrollYProgress,
-                                [threshold - 0.01, threshold],
-                                [0.3, 1]
-                            )
-
-                            const y = useTransform(
-                                scrollYProgress,
-                                [threshold - 0.01, threshold],
-                                [5, 0]
-                            )
-
-                            const cleanWord = word.replace(/[.,]/g, '')
-                            const isHighlighted = highlightWords.has(cleanWord) || highlightWords.has(word)
-
-                            return (
-                                <motion.span
-                                    key={wIndex}
-                                    style={{ opacity, y }}
-                                    className={`inline-block mr-[0.25em] ${isHighlighted ? 'text-[#0097ff]' : ''}`}
-                                >
-                                    {word}
-                                </motion.span>
-                            )
-                        })}
+        <section className="border-b border-neutral-800 py-20 md:py-32">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                <div className="max-w-3xl space-y-6">
+                    <p className="text-xl font-semibold leading-snug tracking-tight text-neutral-500 md:text-2xl">
+                        Every website has hidden problems that slow it down and hurt its{' '}
+                        <span className="text-neutral-100">search rankings</span>. Missing meta tags,
+                        broken links, slow loading times — these issues stack up and cost you traffic.
                     </p>
-                ))}
+                    <p className="text-xl font-semibold leading-snug tracking-tight text-neutral-500 md:text-2xl">
+                        <span className="text-neutral-100">SiteCrawl</span> scans your entire site,
+                        identifies every <span className="text-neutral-100">technical issue</span>, and
+                        gives you a clear roadmap to fix them.
+                    </p>
+                </div>
+
+                <div className="mt-16 grid grid-cols-2 divide-x divide-y divide-neutral-800 border border-neutral-800 lg:grid-cols-4 lg:divide-y-0">
+                    {stats.map((stat) => (
+                        <div key={stat.label} className="bg-neutral-900/50 p-4">
+                            <p className="text-xs text-neutral-400">{stat.label}</p>
+                            <p className="mt-2 text-2xl font-semibold tabular-nums text-neutral-100">{stat.value}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     )
@@ -89,35 +45,27 @@ function ScrollRevealSection() {
 
 function CTASection() {
     return (
-        <section className="bg-background py-24 md:py-32">
-            <div className="mx-auto max-w-4xl px-6 text-center">
-                <div className="rounded-3xl bg-[#1d1f23] border border-white/5 px-8 py-16 md:px-16 md:py-20">
-                    <h2 className="text-foreground text-4xl font-medium md:text-5xl lg:text-6xl" style={{ lineHeight: '70px', letterSpacing: '-0.05em' }}>
+        <section className="border-b border-neutral-800 py-20 md:py-32">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                <div className="border border-neutral-800 bg-neutral-900/50 p-8 md:p-16">
+                    <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Get started</p>
+                    <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
                         Ready to fix your website issues?
                     </h2>
-                    <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg">
-                        Start your free 14-day trial today. No credit card required.
+                    <p className="mt-3 max-w-xl text-sm text-neutral-400">
+                        Start monitoring for free. No credit card required.
                     </p>
-                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <div className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
-                            <Button
-                                asChild
-                                size="lg"
-                                className="rounded-xl px-8 text-base">
-                                <a href="https://dashboard.sitecrawl.app/auth/signup">
-                                    <span className="text-nowrap">Start Free Trial</span>
-                                </a>
-                            </Button>
-                        </div>
-                        <Button
-                            asChild
-                            size="lg"
-                            variant="ghost"
-                            className="h-10.5 rounded-xl px-8">
-                            <a href="https://tidycal.com/sitecrawl/demo">
-                                <span className="text-nowrap">Schedule Demo</span>
-                            </a>
-                        </Button>
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a
+                            href="https://dashboard.sitecrawl.app"
+                            className="bg-neutral-100 px-5 py-2.5 text-center text-sm font-medium text-neutral-900 hover:bg-white">
+                            Start for free
+                        </a>
+                        <a
+                            href="https://tidycal.com/sitecrawl/demo"
+                            className="border border-neutral-800 bg-neutral-900 px-5 py-2.5 text-center text-sm text-neutral-400 hover:border-neutral-700 hover:text-neutral-200">
+                            Schedule demo
+                        </a>
                     </div>
                 </div>
             </div>
@@ -130,104 +78,60 @@ export default function HeroSection() {
         <>
             <HeroHeader />
             <main className="overflow-hidden">
-                <section>
-                    <div className="relative pt-24 md:pt-36">
-                        <div className="mx-auto max-w-7xl px-6">
-                            <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                                <AnimatedGroup variants={transitionVariants}>
-                                    <a
-                                        href="/changelog"
-                                        className="bg-[#1d1f23] hover:bg-background dark:hover:border-t-border group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 transition-colors duration-300 dark:border-t-white/5">
-                                        <span className="text-foreground text-sm">Version 1.0 now available!</span>
-                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                <section className="border-b border-neutral-800">
+                    <div className="pt-32 md:pt-44">
+                        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                            <div className="text-center">
+                                <a
+                                    href="/changelog"
+                                    className="group mx-auto inline-flex w-fit items-center gap-2 border border-neutral-800 bg-neutral-900/50 py-1 pl-3 pr-2 hover:border-neutral-700">
+                                    <span className="size-2 rounded-full bg-emerald-500"></span>
+                                    <span className="text-xs text-neutral-400 group-hover:text-neutral-200">
+                                        Version 1.0 is now available
+                                    </span>
+                                    <ArrowRight className="size-3.5 text-neutral-500" />
+                                </a>
 
-                                        <div className="group-hover:bg-[#1d1f23] size-6 overflow-hidden rounded-full duration-500">
-                                            <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </AnimatedGroup>
-
-                                <h1 className="text-foreground mx-auto mt-8 max-w-4xl text-balance text-4xl font-medium md:text-5xl lg:mt-16 lg:text-6xl" style={{ lineHeight: '70px', letterSpacing: '-0.05em' }}>
-                                    Comprehensive Website Analysis & SEO Insights
+                                <h1 className="mx-auto mt-8 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl">
+                                    Comprehensive website analysis and SEO insights
                                 </h1>
-                                <p className="text-foreground mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                    A smarter way to keep track of your website's health and performance.
+                                <p className="mx-auto mt-6 max-w-xl text-balance text-base text-neutral-400 sm:text-lg">
+                                    Push crawl reports via the ingest API. See indexability, response
+                                    codes, and Core Web Vitals in one place.
                                 </p>
 
-                                <AnimatedGroup
-                                    variants={{
-                                        container: {
-                                            visible: {
-                                                transition: {
-                                                    staggerChildren: 0.05,
-                                                    delayChildren: 0.75,
-                                                },
-                                            },
-                                        },
-                                        ...transitionVariants,
-                                    }}
-                                    className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                    <div
-                                        key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
-                                        <Button
-                                            asChild
-                                            size="lg"
-                                            className="rounded-xl px-5 text-base">
-                                            <a href="https://dashboard.sitecrawl.app/auth/signup">
-                                                <span className="text-nowrap">14 Day Free Trial</span>
-                                            </a>
-                                        </Button>
-                                    </div>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-10.5 rounded-xl px-5">
-                                        <a href="#features">
-                                            <span className="text-nowrap">Learn More</span>
-                                        </a>
-                                    </Button>
-                                </AnimatedGroup>
+                                <div className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row">
+                                    <a
+                                        href="https://dashboard.sitecrawl.app"
+                                        className="bg-neutral-100 px-5 py-2.5 text-sm font-medium text-neutral-900 hover:bg-white">
+                                        Start for free
+                                    </a>
+                                    <a
+                                        href="#features"
+                                        className="border border-neutral-800 bg-neutral-900 px-5 py-2.5 text-sm text-neutral-400 hover:border-neutral-700 hover:text-neutral-200">
+                                        Learn more
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            staggerChildren: 0.05,
-                                            delayChildren: 0.75,
-                                        },
-                                    },
-                                },
-                                ...transitionVariants,
-                            }}>
-                            <div className="mask-b-from-55% relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
-                                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                                    <img
-                                        className="bg-background aspect-15/8 relative rounded-2xl"
-                                        src="/dashboard/dashboard-1.png"
-                                        alt="SiteCrawl Dashboard"
-                                        width="2700"
-                                        height="1440"
-                                    />
-                                </div>
+                        <div className="mx-auto mt-16 max-w-6xl px-4 sm:px-6 md:mt-24">
+                            <div className="border border-neutral-800">
+                                <img
+                                    className="aspect-15/8 w-full"
+                                    src="/dashboard/dashboard-1.jpg"
+                                    alt="SiteCrawl dashboard"
+                                    width="2700"
+                                    height="1440"
+                                />
                             </div>
-                        </AnimatedGroup>
+                        </div>
+
+                        <div className="h-20 md:h-32" />
                     </div>
                 </section>
 
-                <ScrollRevealSection />
+                <StatementSection />
 
                 <Features11 />
 

@@ -1,3 +1,4 @@
+import { ArrowLeft } from 'lucide-react'
 import { HeroHeader } from '@/components/header'
 import FooterSection from '@/components/footer'
 import PortableText from '@/components/portable-text'
@@ -12,33 +13,33 @@ export default function BlogPost({ post }: BlogPostProps) {
   return (
     <>
       <HeroHeader />
-      <main className="pt-32 pb-16">
-        <article className="mx-auto max-w-3xl px-6">
+      <main className="pt-32 pb-16 md:pt-44">
+        <article className="mx-auto max-w-3xl px-4 sm:px-6">
           <header className="mb-12">
             <div className="mb-6">
               {post.categories && post.categories.length > 0 && (
-                <div className="flex gap-2 mb-4">
+                <div className="mb-4 flex gap-3">
                   {post.categories.map((cat, idx) => (
-                    <span key={idx} className="text-sm font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
+                    <span key={idx} className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">
                       {cat.title}
                     </span>
                   ))}
                 </div>
               )}
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+              <h1 className="mb-4 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
                 {post.title}
               </h1>
-              <div className="flex items-center gap-4 text-muted-foreground">
+              <div className="flex items-center gap-3 text-xs text-neutral-500">
                 {post.author && (
                   <div className="flex items-center gap-2">
                     {post.author.image && (
                       <img
                         src={urlFor(post.author.image)}
                         alt={post.author.name}
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="size-6 border border-neutral-800 object-cover"
                       />
                     )}
-                    <span className="font-medium">{post.author.name}</span>
+                    <span className="font-medium text-neutral-400">{post.author.name}</span>
                   </div>
                 )}
                 {post.publishedAt && (
@@ -57,28 +58,26 @@ export default function BlogPost({ post }: BlogPostProps) {
             </div>
 
             {post.mainImage && (
-              <div className="overflow-hidden rounded-xl aspect-[16/9]">
+              <div className="aspect-[16/9] overflow-hidden border border-neutral-800">
                 <img
                   src={urlFor(post.mainImage)}
                   alt={post.mainImage.alt || post.title}
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
             )}
           </header>
 
-          <div className="text-lg">
+          <div className="text-sm">
             {post.body && <PortableText content={post.body} />}
           </div>
 
-          <footer className="mt-16 pt-8 border-t">
+          <footer className="mt-16 border-t border-neutral-800 pt-8">
             <a
               href="/blog"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-200"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
+              <ArrowLeft className="size-4" />
               Back to all posts
             </a>
           </footer>

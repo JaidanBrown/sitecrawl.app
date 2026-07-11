@@ -5,17 +5,18 @@ export default function TermsPage() {
     return (
         <>
             <HeroHeader />
-            <main className="min-h-screen bg-background pt-24 md:pt-36">
-                <div className="mx-auto max-w-3xl px-6 py-12">
-                    <div className="mb-16">
-                        <h1 className="text-foreground text-4xl font-semibold md:text-5xl">Terms of Service</h1>
-                        <p className="text-muted-foreground mt-4 text-sm">Last updated: July 11, 2026</p>
+            <main className="min-h-screen pt-32 md:pt-44">
+                <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+                    <div className="mb-12">
+                        <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Legal</p>
+                        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">Terms of Service</h1>
+                        <p className="mt-3 text-xs text-neutral-500">Last updated: July 11, 2026</p>
                     </div>
 
                     <div className="space-y-10">
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">1. Acceptance of Terms</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">1. Acceptance of Terms</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 These Terms of Service ("Terms") govern your access to and use of the SiteCrawl
                                 website and web crawling and analysis service (the "Service"). By creating an
                                 account or using the Service, you agree to be bound by these Terms. If you do
@@ -24,8 +25,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">2. The Service</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">2. The Service</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 SiteCrawl provides website crawling, technical analysis, and search engine
                                 optimization insights. We may add, change, or remove features at any time. We
                                 will make reasonable efforts to notify you of material changes that negatively
@@ -34,12 +35,12 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">3. Accounts</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">3. Accounts</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 You must provide accurate information when creating an account and keep it up
                                 to date. You are responsible for safeguarding your account credentials and for
                                 all activity that occurs under your account. Notify us immediately at{' '}
-                                <a href="mailto:hello@sitecrawl.app" className="text-foreground underline">
+                                <a href="mailto:hello@sitecrawl.app" className="text-neutral-100 underline underline-offset-4 hover:no-underline">
                                     hello@sitecrawl.app
                                 </a>{' '}
                                 if you suspect unauthorized use of your account.
@@ -47,12 +48,12 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">4. Acceptable Use</h2>
-                            <p className="text-muted-foreground mb-3 leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">4. Acceptable Use</h2>
+                            <p className="text-neutral-400 mb-3 text-sm leading-relaxed">
                                 You agree to use the Service only for lawful purposes. In particular, you agree
                                 that you will not:
                             </p>
-                            <ul className="text-muted-foreground list-disc space-y-2 pl-6 leading-relaxed">
+                            <ul className="text-neutral-400 list-disc space-y-2 pl-6 text-sm leading-relaxed">
                                 <li>
                                     Crawl websites that you do not own or do not have permission to crawl and
                                     analyze
@@ -72,8 +73,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">5. Subscriptions and Billing</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">5. Subscriptions and Billing</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 Paid plans are billed in advance on a recurring basis (monthly or annually)
                                 until cancelled. You can cancel at any time from your dashboard; your plan will
                                 remain active until the end of the current billing period. Except where required
@@ -83,8 +84,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">6. Your Content and Data</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">6. Your Content and Data</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 You retain all rights to the URLs you submit and the data generated from your
                                 crawls ("Your Data"). You grant us a limited license to process and store Your
                                 Data solely to provide and improve the Service. You are responsible for
@@ -94,8 +95,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">7. Intellectual Property</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">7. Intellectual Property</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 The Service, including its software, design, and branding, is owned by
                                 SiteCrawl and protected by intellectual property laws. Except for the limited
                                 right to use the Service in accordance with these Terms, no rights are granted
@@ -104,8 +105,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">8. Disclaimers</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">8. Disclaimers</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 The Service is provided "as is" and "as available" without warranties of any
                                 kind, express or implied, including warranties of merchantability, fitness for
                                 a particular purpose, and non-infringement. We do not warrant that the Service
@@ -115,8 +116,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">9. Limitation of Liability</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">9. Limitation of Liability</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 To the maximum extent permitted by law, SiteCrawl will not be liable for any
                                 indirect, incidental, special, consequential, or punitive damages, or for any
                                 loss of profits, revenue, data, or goodwill, arising out of or related to your
@@ -127,8 +128,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">10. Termination</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">10. Termination</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 You may stop using the Service and delete your account at any time. We may
                                 suspend or terminate your access if you violate these Terms or if we reasonably
                                 believe your use poses a risk to the Service or others. Upon termination, your
@@ -138,8 +139,8 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">11. Changes to These Terms</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">11. Changes to These Terms</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 We may update these Terms from time to time. We will post the updated Terms on
                                 this page and revise the "Last updated" date above. If the changes are
                                 material, we will provide additional notice. Your continued use of the Service
@@ -148,10 +149,10 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-foreground mb-3 text-2xl font-semibold">12. Contact Us</h2>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <h2 className="mb-3 text-lg font-semibold text-neutral-100">12. Contact Us</h2>
+                            <p className="text-neutral-400 text-sm leading-relaxed">
                                 If you have any questions about these Terms, contact us at{' '}
-                                <a href="mailto:hello@sitecrawl.app" className="text-foreground underline">
+                                <a href="mailto:hello@sitecrawl.app" className="text-neutral-100 underline underline-offset-4 hover:no-underline">
                                     hello@sitecrawl.app
                                 </a>
                                 .

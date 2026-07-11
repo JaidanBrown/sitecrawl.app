@@ -30,7 +30,7 @@ export default function PortableText({ content }: PortableTextProps) {
           const linkDef = markDefs?.find((def) => def._key === mark)
           if (linkDef && linkDef._type === 'link') {
             text = (
-              <a href={linkDef.href} className="text-primary underline hover:no-underline" target="_blank" rel="noopener noreferrer">
+              <a href={linkDef.href} className="text-neutral-100 underline underline-offset-4 hover:no-underline" target="_blank" rel="noopener noreferrer">
                 {text}
               </a>
             )
@@ -50,24 +50,24 @@ export default function PortableText({ content }: PortableTextProps) {
 
       switch (block.style) {
         case 'h1':
-          return <h1 key={block._key} className="text-4xl font-bold mt-8 mb-4">{children}</h1>
+          return <h1 key={block._key} className="mt-8 mb-4 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">{children}</h1>
         case 'h2':
-          return <h2 key={block._key} className="text-3xl font-bold mt-8 mb-4">{children}</h2>
+          return <h2 key={block._key} className="mt-8 mb-4 text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{children}</h2>
         case 'h3':
-          return <h3 key={block._key} className="text-2xl font-bold mt-6 mb-3">{children}</h3>
+          return <h3 key={block._key} className="mt-6 mb-3 text-lg font-semibold text-neutral-100">{children}</h3>
         case 'h4':
-          return <h4 key={block._key} className="text-xl font-bold mt-4 mb-2">{children}</h4>
+          return <h4 key={block._key} className="mt-4 mb-2 text-sm font-medium text-neutral-100">{children}</h4>
         case 'blockquote':
           return (
-            <blockquote key={block._key} className="border-l-4 border-primary pl-4 italic my-4 text-muted-foreground">
+            <blockquote key={block._key} className="my-4 border-l border-neutral-700 pl-4 text-neutral-400">
               {children}
             </blockquote>
           )
         default:
           if (block.listItem === 'bullet') {
-            return <li key={block._key} className="ml-6">{children}</li>
+            return <li key={block._key} className="ml-6 text-neutral-400">{children}</li>
           }
-          return <p key={block._key} className="mb-4 leading-relaxed">{children}</p>
+          return <p key={block._key} className="mb-4 leading-relaxed text-neutral-400">{children}</p>
       }
     }
 
@@ -77,7 +77,7 @@ export default function PortableText({ content }: PortableTextProps) {
           <img
             src={urlFor({ asset: block.asset })}
             alt=""
-            className="rounded-xl w-full"
+            className="w-full border border-neutral-800"
           />
         </figure>
       )
@@ -106,7 +106,7 @@ export default function PortableText({ content }: PortableTextProps) {
   }
 
   return (
-    <div className="prose prose-invert max-w-none">
+    <div className="max-w-none">
       {groupedContent.map((item, idx) => {
         if (Array.isArray(item)) {
           return (

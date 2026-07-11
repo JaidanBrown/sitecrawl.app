@@ -19,6 +19,12 @@ const { title, description = "Discover technical issues, optimize performance, a
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
 		<!-- Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQWBYEMPK"></script>
 		<script is:inline>
@@ -28,7 +34,7 @@ const { title, description = "Discover technical issues, optimize performance, a
 			gtag('config', 'G-WKQWBYEMPK');
 		</script>
 	</head>
-	<body class="antialiased">
+	<body class="min-h-full bg-neutral-950 font-sans text-neutral-100 antialiased">
 		<slot />
 	</body>
 </html>

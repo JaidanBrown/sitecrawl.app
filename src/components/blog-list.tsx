@@ -11,49 +11,52 @@ export default function BlogList({ posts }: BlogListProps) {
   return (
     <>
       <HeroHeader />
-      <main className="pt-32 pb-16">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">Blog</h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Stay updated with the latest insights on SEO, website performance, and technical optimization.
+      <main className="min-h-screen pt-32 pb-16 md:pt-44">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-12">
+            <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Blog</p>
+            <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+              Latest posts
+            </h1>
+            <p className="mt-3 max-w-xl text-sm text-neutral-400">
+              Insights on SEO, website performance, and technical optimization.
             </p>
           </div>
 
           {posts.length === 0 ? (
-            <p className="text-center text-muted-foreground">No posts yet. Check back soon!</p>
+            <p className="text-sm text-neutral-500">No posts yet. Check back soon.</p>
           ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
-                <article key={post._id} className="group">
+                <article key={post._id} className="group border border-neutral-800 bg-neutral-900/50 hover:border-neutral-700">
                   <a href={`/blog/${post.slug.current}`} className="block">
-                    <div className="overflow-hidden rounded-xl border bg-card mb-4 aspect-[16/9]">
+                    <div className="aspect-[16/9] overflow-hidden border-b border-neutral-800">
                       {post.mainImage ? (
                         <img
                           src={urlFor(post.mainImage)}
                           alt={post.mainImage.alt || post.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="h-full w-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-muted flex items-center justify-center">
-                          <span className="text-muted-foreground">No image</span>
+                        <div className="flex h-full w-full items-center justify-center bg-neutral-900">
+                          <span className="text-xs text-neutral-600">No image</span>
                         </div>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 p-4">
                       {post.categories && post.categories.length > 0 && (
-                        <div className="flex gap-2">
+                        <div className="flex gap-3">
                           {post.categories.map((cat, idx) => (
-                            <span key={idx} className="text-xs font-medium text-primary/80">
+                            <span key={idx} className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">
                               {cat.title}
                             </span>
                           ))}
                         </div>
                       )}
-                      <h2 className="text-xl font-semibold group-hover:text-primary/80 transition-colors">
+                      <h2 className="text-sm font-medium text-neutral-100 group-hover:text-white">
                         {post.title}
                       </h2>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2 text-xs text-neutral-500">
                         {post.author && <span>{post.author.name}</span>}
                         {post.author && post.publishedAt && <span>·</span>}
                         {post.publishedAt && (
