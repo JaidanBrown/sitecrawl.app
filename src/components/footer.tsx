@@ -17,6 +17,14 @@ const links = [
         title: 'Changelog',
         href: '/changelog',
     },
+    {
+        title: 'Privacy Policy',
+        href: '/privacy',
+    },
+    {
+        title: 'Terms of Service',
+        href: '/terms',
+    },
 ]
 
 export default function FooterSection() {
