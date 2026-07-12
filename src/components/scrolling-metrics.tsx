@@ -137,25 +137,26 @@ function MarqueeRow({
     const items = repeatMetrics(metrics)
 
     return (
-        <div
-            className="overflow-hidden"
-            style={{
-                transform: `translateX(calc(var(--scroll-nudge, 0px) * ${reverse ? 1 : -1}))`,
-            }}>
+        <div className="overflow-hidden">
             <div
-                className={`flex w-max ${reverse ? 'marquee-reverse' : 'marquee-forward'}`}
-                style={{ ['--marquee-duration' as string]: duration }}>
-                {[0, 1].map((segment) => (
-                    <div key={segment} className="flex shrink-0 gap-3 pr-3" aria-hidden={segment === 1}>
-                        {items.map((metric, index) => (
-                            <MetricCard
-                                key={`${segment}-${index}-${metric.label}`}
-                                {...metric}
-                                revealed={revealedLabels.has(metric.label)}
-                            />
-                        ))}
-                    </div>
-                ))}
+                style={{
+                    transform: `translateX(calc(var(--scroll-nudge, 0px) * ${reverse ? 1 : -1}))`,
+                }}>
+                <div
+                    className={`flex w-max ${reverse ? 'marquee-reverse' : 'marquee-forward'}`}
+                    style={{ ['--marquee-duration' as string]: duration }}>
+                    {[0, 1].map((segment) => (
+                        <div key={segment} className="flex shrink-0 gap-3 pr-3" aria-hidden={segment === 1}>
+                            {items.map((metric, index) => (
+                                <MetricCard
+                                    key={`${segment}-${index}-${metric.label}`}
+                                    {...metric}
+                                    revealed={revealedLabels.has(metric.label)}
+                                />
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
@@ -179,8 +180,9 @@ export default function ScrollingMetrics() {
             const total = viewportHeight + rect.height
             const progress = Math.min(1, Math.max(0, (viewportHeight - rect.top) / total))
 
-            // Scroll-linked horizontal nudge, layered on top of the CSS auto-scroll
-            el.style.setProperty('--scroll-nudge', `${((progress - 0.5) * 240).toFixed(1)}px`)
+            // Scroll-linked horizontal nudge, layered on top of the CSS auto-scroll.
+            // Kept small so the shift always stays behind the edge fade masks.
+            el.style.setProperty('--scroll-nudge', `${((progress - 0.5) * 100).toFixed(1)}px`)
 
             const count = revealOrder.filter((r) => progress >= r.at).length
             setRevealedCount((prev) => (prev === count ? prev : count))
@@ -203,7 +205,7 @@ export default function ScrollingMetrics() {
     const revealedLabels = new Set(revealOrder.slice(0, revealedCount).map((r) => r.label))
 
     return (
-        <div ref={containerRef} className="relative mt-16">
+        <div ref={containerRef} className="relative mt-16 overflow-x-clip">
             <div
                 className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-neutral-950 to-transparent sm:w-28"
                 aria-hidden="true"

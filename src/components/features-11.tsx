@@ -22,18 +22,89 @@ import {
     Shield,
 } from 'lucide-react'
 
+type ChartPoint = { x: number; y: number }
+
+const totalUrlPoints: ChartPoint[] = [
+    { x: 0, y: 112 },
+    { x: 40, y: 104 },
+    { x: 80, y: 96 },
+    { x: 120, y: 100 },
+    { x: 160, y: 84 },
+    { x: 200, y: 70 },
+    { x: 240, y: 58 },
+    { x: 280, y: 50 },
+    { x: 320, y: 38 },
+]
+
+const internalHtmlPoints: ChartPoint[] = [
+    { x: 0, y: 124 },
+    { x: 40, y: 120 },
+    { x: 80, y: 114 },
+    { x: 120, y: 116 },
+    { x: 160, y: 104 },
+    { x: 200, y: 96 },
+    { x: 240, y: 88 },
+    { x: 280, y: 80 },
+    { x: 320, y: 70 },
+]
+
+function pointsToPath(points: ChartPoint[]): string {
+    return points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ')
+}
+
+/** Position along a polyline at t in [0, 1], weighted by segment length. */
+function pointAtProgress(points: ChartPoint[], t: number): ChartPoint {
+    if (points.length === 0) return { x: 0, y: 0 }
+    if (points.length === 1 || t <= 0) return points[0]
+    if (t >= 1) return points[points.length - 1]
+
+    const lengths: number[] = []
+    let total = 0
+    for (let i = 1; i < points.length; i++) {
+        const dx = points[i].x - points[i - 1].x
+        const dy = points[i].y - points[i - 1].y
+        const len = Math.hypot(dx, dy)
+        lengths.push(len)
+        total += len
+    }
+
+    let remaining = t * total
+    for (let i = 0; i < lengths.length; i++) {
+        const len = lengths[i]
+        if (remaining <= len || i === lengths.length - 1) {
+            const localT = len === 0 ? 0 : Math.min(1, remaining / len)
+            const a = points[i]
+            const b = points[i + 1]
+            return {
+                x: a.x + (b.x - a.x) * localT,
+                y: a.y + (b.y - a.y) * localT,
+            }
+        }
+        remaining -= len
+    }
+
+    return points[points.length - 1]
+}
+
 /** Crawl Discovery line chart that draws itself as the section scrolls into view. */
 function CrawlChart({ progress }: { progress: MotionValue<number> }) {
     const reduced = useReducedMotion()
 
     const drawRaw = useTransform(progress, [0.08, 0.45], [0, 1], { clamp: true })
-    const draw = useSpring(drawRaw, { stiffness: 90, damping: 24 })
+    // Higher damping avoids overshoot past 1, which makes stroke-dash look split.
+    const drawSpring = useSpring(drawRaw, { stiffness: 100, damping: 28, restDelta: 0.001 })
+    const draw = useTransform(drawSpring, (v) => Math.min(1, Math.max(0, v)))
     const pathLength = reduced ? 1 : draw
-    const dotOpacity = useTransform(progress, [0.42, 0.48], [0, 1])
-    const areaOpacity = useTransform(progress, [0.2, 0.45], [0, 0.08])
+    const areaOpacity = useTransform(draw, [0.15, 1], [0, 0.08])
 
-    const totalUrls = 'M0,112 L40,104 L80,96 L120,100 L160,84 L200,70 L240,58 L280,50 L320,38'
-    const internalHtml = 'M0,124 L40,120 L80,114 L120,116 L160,104 L200,96 L240,88 L280,80 L320,70'
+    const totalTipX = useTransform(draw, (t) => pointAtProgress(totalUrlPoints, t).x)
+    const totalTipY = useTransform(draw, (t) => pointAtProgress(totalUrlPoints, t).y)
+    const htmlTipX = useTransform(draw, (t) => pointAtProgress(internalHtmlPoints, t).x)
+    const htmlTipY = useTransform(draw, (t) => pointAtProgress(internalHtmlPoints, t).y)
+    const tipOpacity = useTransform(draw, [0.02, 0.08], [0, 1])
+
+    const totalUrls = pointsToPath(totalUrlPoints)
+    const internalHtml = pointsToPath(internalHtmlPoints)
 
     return (
         <div className="relative h-full w-full">
@@ -70,6 +141,8 @@ function CrawlChart({ progress }: { progress: MotionValue<number> }) {
                     fill="none"
                     stroke="#3b82f6"
                     strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
                     style={{ pathLength }}
                 />
@@ -78,22 +151,25 @@ function CrawlChart({ progress }: { progress: MotionValue<number> }) {
                     fill="none"
                     stroke="#8b5cf6"
                     strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
                     style={{ pathLength }}
                 />
+                {/* Dots track the drawing tip so they stay on the line (not parked at the end). */}
                 <motion.circle
-                    cx="320"
-                    cy="38"
+                    cx={reduced ? 320 : totalTipX}
+                    cy={reduced ? 38 : totalTipY}
                     r="3"
                     fill="#3b82f6"
-                    style={{ opacity: reduced ? 1 : dotOpacity }}
+                    style={{ opacity: reduced ? 1 : tipOpacity }}
                 />
                 <motion.circle
-                    cx="320"
-                    cy="70"
+                    cx={reduced ? 320 : htmlTipX}
+                    cy={reduced ? 70 : htmlTipY}
                     r="3"
                     fill="#8b5cf6"
-                    style={{ opacity: reduced ? 1 : dotOpacity }}
+                    style={{ opacity: reduced ? 1 : tipOpacity }}
                 />
             </svg>
         </div>
