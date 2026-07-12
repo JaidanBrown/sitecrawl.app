@@ -5,15 +5,9 @@ import FooterSection from './footer'
 import FAQs from './faqs'
 import FeaturesSection from './features-6'
 import Features11 from './features-11'
+import ScrollingMetrics from './scrolling-metrics'
 
 function StatementSection() {
-    const stats = [
-        { label: 'URLs crawled', value: '128,431' },
-        { label: 'Issues detected', value: '12,847' },
-        { label: 'Response codes tracked', value: '38' },
-        { label: 'Reports generated', value: '4,209' },
-    ]
-
     return (
         <section className="border-b border-neutral-800 py-20 md:py-32">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -29,16 +23,9 @@ function StatementSection() {
                         gives you a clear roadmap to fix them.
                     </p>
                 </div>
-
-                <div className="mt-16 grid grid-cols-2 divide-x divide-y divide-neutral-800 border border-neutral-800 lg:grid-cols-4 lg:divide-y-0">
-                    {stats.map((stat) => (
-                        <div key={stat.label} className="bg-neutral-900/50 p-4">
-                            <p className="text-xs text-neutral-400">{stat.label}</p>
-                            <p className="mt-2 text-2xl font-semibold tabular-nums text-neutral-100">{stat.value}</p>
-                        </div>
-                    ))}
-                </div>
             </div>
+
+            <ScrollingMetrics />
         </section>
     )
 }
@@ -48,11 +35,10 @@ function CTASection() {
         <section className="border-b border-neutral-800 py-20 md:py-32">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="border border-neutral-800 bg-neutral-900/50 p-8 md:p-16">
-                    <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Get started</p>
-                    <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+                    <h2 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">
                         Ready to fix your website issues?
                     </h2>
-                    <p className="mt-3 max-w-xl text-sm text-neutral-400">
+                    <p className="mt-4 max-w-xl text-base text-neutral-400 sm:text-lg">
                         Start monitoring for free. No credit card required.
                     </p>
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -77,38 +63,40 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="overflow-hidden">
+            <main>
                 <section className="border-b border-neutral-800">
                     <div className="pt-32 md:pt-44">
                         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-                            <div className="text-center">
-                                <a
-                                    href="/changelog"
-                                    className="group mx-auto inline-flex w-fit items-center gap-2 border border-neutral-800 bg-neutral-900/50 py-1 pl-3 pr-2 hover:border-neutral-700">
-                                    <span className="size-2 rounded-full bg-emerald-500"></span>
-                                    <span className="text-xs text-neutral-400 group-hover:text-neutral-200">
-                                        Version 1.0 is now available
-                                    </span>
-                                    <ArrowRight className="size-3.5 text-neutral-500" />
-                                </a>
+                            <div className="grid gap-10 md:grid-cols-2 md:items-end md:gap-8">
+                                <div className="text-left">
+                                    <a
+                                        href="/changelog"
+                                        className="group inline-flex w-fit items-center gap-2 border border-neutral-800 bg-neutral-900/50 py-1 pl-3 pr-2 hover:border-neutral-700">
+                                        <span className="size-2 rounded-full bg-emerald-500"></span>
+                                        <span className="text-xs text-neutral-400 group-hover:text-neutral-200">
+                                            Version 1.0 is now available
+                                        </span>
+                                        <ArrowRight className="size-3.5 text-neutral-500" />
+                                    </a>
 
-                                <h1 className="mx-auto mt-8 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl">
-                                    Comprehensive website analysis and SEO insights
-                                </h1>
-                                <p className="mx-auto mt-6 max-w-xl text-balance text-base text-neutral-400 sm:text-lg">
-                                    Push crawl reports via the ingest API. See indexability, response
-                                    codes, and Core Web Vitals in one place.
-                                </p>
+                                    <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl">
+                                        Comprehensive website analysis and SEO insights
+                                    </h1>
+                                    <p className="mt-6 max-w-xl text-balance text-base text-neutral-400 sm:text-lg">
+                                        Track site health, performance, and SEO across every page. Clear
+                                        reports and actionable insights, all in one dashboard.
+                                    </p>
+                                </div>
 
-                                <div className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row">
+                                <div className="grid grid-cols-1 gap-3 md:ml-auto">
                                     <a
                                         href="https://dashboard.sitecrawl.app"
-                                        className="bg-neutral-100 px-5 py-2.5 text-sm font-medium text-neutral-900 hover:bg-white">
+                                        className="w-full bg-neutral-100 px-5 py-2.5 text-center text-sm font-medium text-neutral-900 hover:bg-white">
                                         Start for free
                                     </a>
                                     <a
                                         href="#features"
-                                        className="border border-neutral-800 bg-neutral-900 px-5 py-2.5 text-sm text-neutral-400 hover:border-neutral-700 hover:text-neutral-200">
+                                        className="w-full border border-neutral-800 bg-neutral-900 px-5 py-2.5 text-center text-sm text-neutral-400 hover:border-neutral-700 hover:text-neutral-200">
                                         Learn more
                                     </a>
                                 </div>

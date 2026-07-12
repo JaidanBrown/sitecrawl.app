@@ -4,11 +4,10 @@ export default function FAQs() {
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="grid gap-y-12 lg:[grid-template-columns:1fr_auto]">
                     <div>
-                        <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">FAQ</p>
-                        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+                        <h2 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">
                             Frequently asked questions
                         </h2>
-                        <p className="mt-3 text-sm text-neutral-400">Everything you need to know about SiteCrawl.</p>
+                        <p className="mt-4 max-w-xl text-base text-neutral-400 sm:text-lg">Everything you need to know about SiteCrawl.</p>
                     </div>
 
                     <div className="divide-y divide-neutral-800 sm:mx-auto sm:max-w-lg lg:mx-0">

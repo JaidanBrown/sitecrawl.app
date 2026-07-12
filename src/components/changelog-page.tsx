@@ -34,11 +34,10 @@ export default function ChangelogPage({ entries }: ChangelogPageProps) {
             <main className="min-h-screen pt-32 md:pt-44">
                 <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
                     <div className="mb-12">
-                        <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Updates</p>
-                        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+                        <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">
                             Changelog
                         </h1>
-                        <p className="mt-3 max-w-xl text-sm text-neutral-400">
+                        <p className="mt-4 max-w-xl text-base text-neutral-400 sm:text-lg">
                             The latest features, improvements, and bug fixes.
                         </p>
                     </div>

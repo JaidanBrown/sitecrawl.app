@@ -8,9 +8,8 @@ export default function PrivacyPage() {
             <main className="min-h-screen pt-32 md:pt-44">
                 <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
                     <div className="mb-12">
-                        <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Legal</p>
-                        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">Privacy Policy</h1>
-                        <p className="mt-3 text-xs text-neutral-500">Last updated: July 11, 2026</p>
+                        <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">Privacy Policy</h1>
+                        <p className="mt-4 text-base text-neutral-500 sm:text-lg">Last updated: July 11, 2026</p>
                     </div>
 
                     <div className="space-y-10">

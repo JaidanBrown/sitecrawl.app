@@ -14,11 +14,10 @@ export default function BlogList({ posts }: BlogListProps) {
       <main className="min-h-screen pt-32 pb-16 md:pt-44">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-12">
-            <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Blog</p>
-            <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">
               Latest posts
             </h1>
-            <p className="mt-3 max-w-xl text-sm text-neutral-400">
+            <p className="mt-4 max-w-xl text-base text-neutral-400 sm:text-lg">
               Insights on SEO, website performance, and technical optimization.
             </p>
           </div>

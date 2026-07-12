@@ -86,11 +86,10 @@ export default function PricingPage() {
             <main className="min-h-screen pt-32 md:pt-44">
                 <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
                     <div>
-                        <p className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">Pricing</p>
-                        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+                        <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-4xl lg:text-5xl">
                             Simple, transparent pricing
                         </h1>
-                        <p className="mt-3 max-w-xl text-sm text-neutral-400">
+                        <p className="mt-4 max-w-xl text-base text-neutral-400 sm:text-lg">
                             Choose the plan that fits your site. Start free — no credit card required.
                         </p>
 
