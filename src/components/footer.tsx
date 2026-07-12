@@ -48,6 +48,12 @@ export default function FooterSection() {
                                 {link.title}
                             </a>
                         ))}
+                        <button
+                            type="button"
+                            data-cc="show-preferencesModal"
+                            className="text-sm text-neutral-400 hover:text-neutral-200">
+                            Cookie preferences
+                        </button>
                     </div>
                 </div>
 

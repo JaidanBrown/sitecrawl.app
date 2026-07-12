@@ -10,7 +10,7 @@ const { title, description = "Discover technical issues, optimize performance, a
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark cc--darkmode">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -25,9 +25,15 @@ const { title, description = "Discover technical issues, optimize performance, a
 			href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQWBYEMPK"></script>
-		<script is:inline>
+		<!-- Google Analytics — blocked until analytics consent -->
+		<script
+			is:inline
+			type="text/plain"
+			data-category="analytics"
+			data-src="https://www.googletagmanager.com/gtag/js?id=G-WKQWBYEMPK"
+			async
+		></script>
+		<script is:inline type="text/plain" data-category="analytics">
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
@@ -36,5 +42,8 @@ const { title, description = "Discover technical issues, optimize performance, a
 	</head>
 	<body class="min-h-full bg-neutral-950 font-sans text-neutral-100 antialiased">
 		<slot />
+		<script>
+			import '../lib/cookie-consent';
+		</script>
 	</body>
 </html>
