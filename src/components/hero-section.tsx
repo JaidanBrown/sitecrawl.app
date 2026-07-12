@@ -105,12 +105,19 @@ export default function HeroSection() {
 
                         <div className="mx-auto mt-16 max-w-6xl px-4 sm:px-6 md:mt-24">
                             <div className="border border-neutral-800">
-                                <img
-                                    className="aspect-15/8 w-full"
-                                    src="/dashboard/dashboard-1.jpg"
-                                    alt="SiteCrawl dashboard"
-                                    width="2700"
-                                    height="1440"
+                                <video
+                                    className="w-full"
+                                    src="/dashboard/sitecrawl-demo.mp4"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="auto"
+                                    aria-label="SiteCrawl dashboard demo"
+                                    onEnded={(e) => {
+                                        e.currentTarget.currentTime = 0
+                                        void e.currentTarget.play()
+                                    }}
                                 />
                             </div>
                         </div>

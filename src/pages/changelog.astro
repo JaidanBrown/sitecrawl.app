@@ -1,11 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ChangelogPage from '../components/changelog-page';
-import { getChangelogEntries } from '../lib/github';
-
-const entries = await getChangelogEntries();
+import { changelog } from '../lib/changelog-data';
 ---
 
-<Layout title="Changelog - SiteCrawl">
-	<ChangelogPage entries={entries} />
+<Layout title="What's new - SiteCrawl">
+	<ChangelogPage entries={changelog} />
 </Layout>
