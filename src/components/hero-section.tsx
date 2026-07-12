@@ -64,8 +64,12 @@ export default function HeroSection() {
         <>
             <HeroHeader />
             <main>
-                <section className="border-b border-neutral-800">
-                    <div className="pt-32 md:pt-44">
+                <section className="relative overflow-hidden border-b border-neutral-800">
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 -top-32 h-[520px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,_rgba(59,130,246,0.2)_0%,_transparent_70%)] md:h-[640px]"
+                    />
+                    <div className="relative pt-32 md:pt-44">
                         <div className="mx-auto max-w-6xl px-4 sm:px-6">
                             <div className="grid gap-10 md:grid-cols-2 md:items-end md:gap-8">
                                 <div className="text-left">
@@ -88,15 +92,15 @@ export default function HeroSection() {
                                     </p>
                                 </div>
 
-                                <div className="grid grid-cols-1 gap-3 md:ml-auto">
+                                <div className="flex flex-col gap-3 sm:flex-row md:ml-auto">
                                     <a
                                         href="https://dashboard.sitecrawl.app"
-                                        className="w-full bg-neutral-100 px-5 py-2.5 text-center text-sm font-medium text-neutral-900 hover:bg-white">
+                                        className="bg-neutral-100 px-6 py-3.5 text-center text-base font-medium text-neutral-900 hover:bg-white sm:min-w-44">
                                         Start for free
                                     </a>
                                     <a
                                         href="#features"
-                                        className="w-full border border-neutral-800 bg-neutral-900 px-5 py-2.5 text-center text-sm text-neutral-400 hover:border-neutral-700 hover:text-neutral-200">
+                                        className="border border-neutral-800 bg-neutral-900 px-6 py-3.5 text-center text-base text-neutral-400 hover:border-neutral-700 hover:text-neutral-200 sm:min-w-44">
                                         Learn more
                                     </a>
                                 </div>
